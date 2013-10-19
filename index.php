@@ -166,5 +166,6 @@ switch ($c) {
 				'statusMessage' => 'Invalid Command',
 				'statusDescription' => 'Command not recognized.'
 		));
+		break;
 }
 ?>
