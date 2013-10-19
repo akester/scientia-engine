@@ -62,5 +62,30 @@ class scientiaModuleCommon {
 		}
 		return $out;
 	}
+	
+	/**
+	 * Fetches current module names.
+	 */
+	public function getModuleNames() {
+		$modules = $this->getModules();
+		$loader = new scientiaFileLoader();
+		$out = array();
+		foreach($modules as $m) {
+			if (array_key_exists($m, $this->overrides))
+				$path = $this->overrides[$m] . '/info.ini';
+			else 
+				$path = $this->modulePath . $m . '/info.ini';
+			
+			/* If the module doesn't have an information file, just skip it. */
+			if (!is_file($path))
+				continue;
+			$info = $loader->loadIni($path);
+			if (!array_key_exists('name', $info))
+				$out[] = $m;
+			else
+				$out[] = $info['name'];
+		}
+		return $out;
+	}
 }
 ?>
