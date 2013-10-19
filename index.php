@@ -131,6 +131,13 @@ function sendResponse($code, $data) {
 				'statusDescription' => 'No Reply.',
 				'apiVersion' => $version
 		);
+	
+	/* Check to see we have at least a code and version in the data */
+	if (!array_key_exists('statusCode', $data))
+		$data['statusCode'] = $code;
+	if (!array_key_exists('apiVersion', $data))
+		$data['apiVersion'] = $version;
+	
 	echo json_encode($data);
 	exit ();
 }
@@ -145,9 +152,7 @@ header('Content-type: application/json');
 $c = $_GET['c'];
 if (empty($c))
 	sendResponse(400, array(
-			'statusCode' => 400,
 			'statusMessage' => 'No Command',
-			'statusDescription' => 'No command passed.',
-			'apiVersion' => $version
+			'statusDescription' => 'No command passed.'
 	));
 ?>
