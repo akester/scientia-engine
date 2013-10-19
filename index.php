@@ -172,6 +172,7 @@ $module->overrideModulePaths($paths);
 switch ($c) {
 	case 'getModules':
 		$modList = $module->getModules();
+		ksort($modList);
 		$data = array(
 				'statusMessage' => 'OK',
 				'statusDescription' => 'OK',
@@ -181,6 +182,7 @@ switch ($c) {
 		break;
 	case 'getModuleNames':
 		$modList = $module->getModuleNames();
+		ksort($modList);
 		$data = array(
 				'statusMessage' => 'OK',
 				'statusDescription' => 'OK',
