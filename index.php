@@ -155,4 +155,14 @@ if (empty($c))
 			'statusMessage' => 'No Command',
 			'statusDescription' => 'No command passed.'
 	));
+
+/* Parse the command */
+switch ($c) {
+	default:
+		/* Not a valid command. */
+		sendResponse(400, array(
+				'statusMessage' => 'Invalid Command',
+				'statusDescription' => 'Command not recognized.'
+		));
+}
 ?>
