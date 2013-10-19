@@ -23,6 +23,9 @@
 /* Script Version */
 $version = '0.1ALPHA';
 
+/* Turn on verbose debugging for PHP */
+ini_set('display_errors', '1');
+
 /* 
  * We roll our own HTTP Status code function since not all versions of PHP have
  * the built in header function.
