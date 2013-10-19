@@ -81,9 +81,9 @@ class scientiaModuleCommon {
 				continue;
 			$info = $loader->loadIni($path);
 			if (!array_key_exists('name', $info))
-				$out[] = $m;
+				$out[$m] = $m;
 			else
-				$out[] = $info['name'];
+				$out[$m] = $info['name'];
 		}
 		return $out;
 	}
