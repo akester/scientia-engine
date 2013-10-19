@@ -145,7 +145,7 @@ function sendResponse($code, $data) {
 }
 
 /* 
- * I won't roll the parsing functions into a function since thats *all* this
+ * I won't roll the parsing functions into a class since that's *all* this
  * page will do.
  */
 header('Content-type: application/json');
