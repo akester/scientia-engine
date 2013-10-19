@@ -25,22 +25,27 @@
  *
  */
 class scientiaModuleCommon {
+	/*
+	 * This *SHOULD* for both production and development cases ...
+	 * But it doesn't.
+	 */
+	private $modulePath;
+	
+	public function __construct(){
+		$this->modulePath = __DIR__ . '/../../scientia/modules/';
+	}
+	
 	/**
 	 * Fetches the current list of available modules.
 	 */
 	public function getModules() {
-		/* 
-		 * This *SHOULD* for both production and development cases ...
-		 * But it doesn't.
-		 */
-		$modulePath = __DIR__ . '/../../scientia/modules/';
 		/* Files that we ignore as modules */
 		$ignoreFiles = array(
 				'README',
 				'.',
 				'..'
 		);
-		$data = scandir($modulePath);
+		$data = scandir($this->modulePath);
 		$out = array();
 		foreach ($data as $d) {
 			if (!in_array($d, $ignoreFiles))
