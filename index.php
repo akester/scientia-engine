@@ -20,6 +20,9 @@
  *    along with Scientia.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* Script Version */
+$version = '0.1ALPHA';
+
 /* 
  * We roll our own HTTP Status code function since not all versions of PHP have
  * the built in header function.
