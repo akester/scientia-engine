@@ -120,6 +120,8 @@ function sendResponseCode($code) {
 }
 
 function sendResponse($code, $data) {
+	global $version;
+	
 	if (empty($code))
 		$code = 500;
 	sendResponseCode($code);
