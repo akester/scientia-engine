@@ -19,9 +19,29 @@
  *    You should have received a copy of the GNU General Public License
  *    along with Scientia.  If not, see <http://www.gnu.org/licenses/>.
  */
+/**
+ * Generic Exception Container.
+ * @author andrew
+ *
+ */
+class ScientiaGenericException extends Exception {
+	/* Construct the parent exception. */
+	public function __construct($message, $code = 0) {
+		parent::__construct($message, $code);
+	}
+}
 
-/* This file includes all of the needed PHP libraries for the ENGINE */
-require_once('exceptions.class.php');
-require_once ('modules.class.php');
-
+/**
+ * Thrown when a file is not found by the loader.
+ * @author andrew
+ *
+ */
+class ScientiaFileNotFound extends ScientiaGenericException {
+	/* Construct the parent exception. */
+	public function __construct($message, $code = 0) {
+		parent::__construct($message, $code);
+	}
+	
+	/* Take care of exception specific functions */
+}
 ?>
