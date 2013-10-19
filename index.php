@@ -128,10 +128,8 @@ function sendResponse($code, $data) {
 	
 	if (empty($data))
 		$data = array(
-				'statusCode' => 500,
 				'statusMessage' => 'No Reply',
-				'statusDescription' => 'No Reply.',
-				'apiVersion' => $version
+				'statusDescription' => 'No Reply.'
 		);
 	
 	/* Check to see we have at least a code and version in the data */
