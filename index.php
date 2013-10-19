@@ -118,4 +118,36 @@ function sendResponseCode($code) {
 	$responseString = 'HTTP/1.1 ' . $code . ' ' . $statusCodes[$code];
 	header($responseString);
 }
+
+function sendResponse($code, $data) {
+	if (empty($code))
+		$code = 500;
+	sendResponseCode($code);
+	
+	if (empty($data))
+		$data = array(
+				'statusCode' => 500,
+				'statusMessage' => 'No Reply',
+				'statusDescription' => 'No Reply.',
+				'apiVersion' => $version
+		);
+	echo json_encode($data);
+	exit ();
+}
+
+/* 
+ * I won't roll the parsing functions into a function since thats *all* this
+ * page will do.
+ */
+header('Content-type: application/json');
+
+/* Check to see we have a command */
+$c = $_GET['c'];
+if (empty($c))
+	sendResponse(400, array(
+			'statusCode' => 400,
+			'statusMessage' => 'No Command',
+			'statusDescription' => 'No command passed.',
+			'apiVersion' => $version
+	));
 ?>
