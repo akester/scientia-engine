@@ -21,13 +21,15 @@
  */
 class scientiaFileLoader {
 	/**
-	 * Load the specified file into the application memory.
+	 * Loads the path into memory.
+	 * @param string $path The file to load.
+	 * @throws ScientiaFileNotFound
+	 * @return array
 	 */
-	public function load($path) {
+	public function loadIni($path) {
 		if (!is_file($path))
 			throw new ScientiaFileNotFound($path + ' was not found.');
-		require_once($path);
-		return True;
+		return parse_ini_file($path);
 	}
 }
 ?>

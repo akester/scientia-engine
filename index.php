@@ -159,10 +159,18 @@ if (empty($c))
 /* Include the autoloader */
 require_once ('include/autoload.class.php');
 
+/* This array overrides the paths of modules to allow us to use development 
+ * paths.
+ */
+$module = new scientiaModuleCommon();
+$paths = array(
+		'logic' => '/home/andrew/Projects/scientia-logic/'
+);
+$module->overrideModulePaths($paths);
+
 /* Parse the command */
 switch ($c) {
 	case 'getModules':
-		$module = new scientiaModuleCommon();
 		$modList = $module->getModules();
 		$data = array(
 				'statusMessage' => 'OK',

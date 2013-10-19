@@ -22,6 +22,7 @@
 
 /* This file includes all of the needed PHP libraries for the ENGINE */
 require_once('exceptions.class.php');
+require_once ('loader.class.php');
 require_once ('modules.class.php');
 
 ?>

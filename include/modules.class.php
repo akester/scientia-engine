@@ -30,9 +30,18 @@ class scientiaModuleCommon {
 	 * But it doesn't.
 	 */
 	private $modulePath;
+	private $overrides;
 	
 	public function __construct(){
 		$this->modulePath = __DIR__ . '/../../scientia/modules/';
+	}
+	
+	/**
+	 * Allows a user to replace the module paths to development paths.
+	 * @param array $paths
+	 */
+	public function overrideModulePaths($paths) {
+		$this->overrides = $paths;
 	}
 	
 	/**
