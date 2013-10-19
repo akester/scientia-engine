@@ -29,7 +29,10 @@ class scientiaModuleCommon {
 	 * Fetches the current list of available modules.
 	 */
 	public function getModules() {
-		/* This *SHOULD* for both production and development cases ... */
+		/* 
+		 * This *SHOULD* for both production and development cases ...
+		 * But it doesn't.
+		 */
 		$modulePath = __DIR__ . '/../../scientia/modules/';
 		/* Files that we ignore as modules */
 		$ignoreFiles = array(
