@@ -163,6 +163,16 @@ require_once ('include/autoload.class.php');
 
 /* Parse the command */
 switch ($c) {
+	case 'getModules':
+		$module = new scientiaModuleCommon();
+		$modList = $module->getModules();
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+				'modules' => $modList
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(
