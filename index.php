@@ -158,6 +158,9 @@ if (empty($c))
 			'statusDescription' => 'No command passed.'
 	));
 
+/* Include the autoloader */
+require_once ('include/autoload.class.php');
+
 /* Parse the command */
 switch ($c) {
 	default:
