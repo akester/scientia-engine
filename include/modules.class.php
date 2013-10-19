@@ -87,5 +87,37 @@ class scientiaModuleCommon {
 		}
 		return $out;
 	}
+	
+	/**
+	 * Gets the layout file for the layout mode and module specified.
+	 * @param string $module The module to load layout for.
+	 * @param string $mode Either 'input' or 'output'
+	 * @throws InvalidArgumentException
+	 * @throws ScientiaFileNotFound
+	 * @return string The layout file contents
+	 */
+	public function getModuleLayout($module, $mode) {
+		if (empty($module))
+			throw new InvalidArgumentException('Layout Module not Passed.');
+		if (empty($mode))
+			throw new InvalidArgumentException('Layout Mode not Passed.');
+		if ($mode != 'input' && $mode != 'output')
+			throw new InvalidArgumentException('Layout Mode invalid.');
+		
+		if ($mode == 'input')
+			$layoutFile = 'layout/input.html';
+		else 
+			$layoutFile = 'layout/output.html';
+		
+		if (array_key_exists($module, $this->overrides))
+			$path = $this->overrides[$module] . $layoutFile;
+		else
+			$path = $this->modulePath . $module . $layoutFile;
+		
+		if (!is_file($path))
+			throw new ScientiaFileNotFound('Layout file not found');
+		
+		return file_get_contents($path);
+	}
 }
 ?>

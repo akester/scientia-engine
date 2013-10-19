@@ -34,7 +34,7 @@ class ScientiaGenericException extends Exception {
 }
 
 /**
- * Thrown when a file is not found by the loader.
+ * Thrown when a file is not found.
  * @author andrew
  *
  */

@@ -190,6 +190,26 @@ switch ($c) {
 		);
 		sendResponse(200, $data);
 		break;
+	case 'getModuleLayout':
+		if (empty($_GET['module']))
+			sendResponse(400, array(
+				'statusMessage' => 'Missing Parameter',
+				'statusDescription' => 'Module not found.'
+			));
+		if (empty($_GET['mode']))
+			sendResponse(400, array(
+					'statusMessage' => 'Missing Parameter',
+					'statusDescription' => 'Mode not found.'
+			));
+		
+		$layout = $module->getModuleLayout($_GET['module'], $_GET['mode']);
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+				'layout' => $layout
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(
