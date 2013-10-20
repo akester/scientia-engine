@@ -217,6 +217,14 @@ switch ($c) {
 		);
 		sendResponse(200, $data);
 		break;
+	case 'getSpecialChars':
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+				'chars' => $chars->getChars()
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(

@@ -40,6 +40,14 @@ class scientiaSpecialChars {
 	);
 	
 	/**
+	 * Return the current status of the chars.
+	 * @return array
+	 */
+	public function getChars() {
+		return $this->chars;
+	}
+	
+	/**
 	 * Add a char to the list.
 	 * @param string $name The name that should be assigned.
 	 * @param string $code The formatted char code.
