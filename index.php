@@ -149,7 +149,7 @@ function sendResponse($code, $data) {
  * I won't roll the parsing functions into a class since that's *all* this
  * page will do.
  */
-header('Content-type: application/json');
+header('Content-type: application/json; charset=utf-8');
 
 /* Check to see we have a command */
 $c = $_GET['c'];
@@ -161,6 +161,10 @@ if (empty($c))
 
 /* Include the autoloader */
 require_once ('include/autoload.class.php');
+
+/* Setup chars */
+$chars = new scientiaSpecialChars();
+$chars->storeChars();
 
 /* This array overrides the paths of modules to allow us to use development 
  * paths.
