@@ -30,7 +30,11 @@ class scientiaSpecialChars {
 	 * @var array
 	 */
 	private $chars = array(
-			/* This should ONLY contain the UTF-16 code, the \u is prepended */
+			/* 
+			 * This should ONLY contain the UTF-16 code, the \u is prepended.
+			 * The name should be in all caps (for convention's sake) and will
+			 * have C_ prepended (ex C_TRIBAR).
+			 */
 			'TRIBAR' => '2261',
 			'ARROW' => '2192',
 	);
