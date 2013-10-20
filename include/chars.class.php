@@ -33,7 +33,7 @@ class scientiaSpecialChars {
 			/* 
 			 * This should ONLY contain the UTF-16 code, the \u is prepended.
 			 * The name should be in all caps (for convention's sake) and will
-			 * have C_ prepended (ex C_TRIBAR).
+			 * have C_ prepended (ex C_TRIBAR).  Replace spaces with an _
 			 */
 			'TRIBAR' => '2261',
 			'ARROW' => '2192',
