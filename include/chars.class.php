@@ -39,7 +39,7 @@ class scientiaSpecialChars {
 			'CENT_SIGN' => '00A2',
 			'POUND_SIGN' => '00A3',
 			'CURRENCY_SIGN' => '00A4',
-			'YEN SIGN' => '00A5',
+			'YEN_SIGN' => '00A5',
 			'BROKEN_BAR' => '00A6',
 			'SECTION_SIGN' => '00A7',
 			'DIAERESIS' => '00A8',
