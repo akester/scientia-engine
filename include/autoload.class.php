@@ -21,6 +21,7 @@
  */
 
 /* This file includes all of the needed PHP libraries for the ENGINE */
+require_once('auth.class.php');
 require_once('chars.class.php');
 require_once('exceptions.class.php');
 require_once('hash.class.php');
