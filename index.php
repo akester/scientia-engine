@@ -243,6 +243,15 @@ switch ($c) {
 		);
 		sendResponse(200, $data);
 		break;
+	case 'testDBQuery':
+		$db = new scientiaDB();
+		$db->query('SHOW TABLES');
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(

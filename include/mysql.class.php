@@ -19,11 +19,23 @@
  *    You should have received a copy of the GNU General Public License
  *    along with Scientia.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+/**
+ * Methods for communicating to a database.
+ * @author andrew
+ *
+ */
 class scientiaDB {
+	/**
+	 * The name of the configuration file to include. (Path is prepended)
+	 * @var string
+	 */
 	private $configFileLocation = 'mysql.ini';
 	private $db;
 	
+	/**
+	 * Connect to the database as configured.
+	 * @throws ScientiaDataBaseError
+	 */
 	public function __construct() {
 		$path = __DIR__ . '/' . $this->configFileLocation;
 		$loader = new scientiaFileLoader();
@@ -33,6 +45,35 @@ class scientiaDB {
 		if ($this->db->connect_errno) {
 			throw new ScientiaDataBaseError('Connect failed: ' . $this->db->connect_error);
 		}
+	}
+	
+	/**
+	 * Execute a MySQL Query
+	 * @param string $query
+	 * @throws ScientiaDataBaseError
+	 * @return mysqli_result
+	 */
+	public function query($query) {
+		$result = $this->db->query($query);
+		if ($this->db->errno) {
+			throw new ScientiaDataBaseError('Query Failed: ' . $this->db->error);
+		}
+		return $result;
+	}
+	
+	/**
+	 * Sanitize a string of special charecters.
+	 * @param string $string
+	 */
+	public function sanitize($string) {
+		return $this->db->real_escape_string($string);
+	}
+	
+	/**
+	 * Close the database connection.
+	 */
+	public function close() {
+		$this->db->close();
 	}
 }
  ?>
