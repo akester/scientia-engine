@@ -2,3 +2,6 @@
 .buildpath
 .project
 .settings/
+
+# MySQL Server Configuration
+include/mysql.ini
