@@ -145,6 +145,16 @@ function sendResponse($code, $data) {
 	exit ();
 }
 
+/* Set up exception handling */
+function scientiaExceptionHandler($e) {
+	$data = array(
+		'statusMessage' => 'Unhandled Exception',
+		'statusDescription' => get_class($e) . 
+			' --with message-- ' . $e->getMessage()
+	);
+	sendResponse(500,$data);
+}
+set_exception_handler('scientiaExceptionHandler');
 /* 
  * I won't roll the parsing functions into a class since that's *all* this
  * page will do.
