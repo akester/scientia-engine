@@ -28,7 +28,7 @@ class scientiaFileLoader {
 	 */
 	public function loadIni($path) {
 		if (!is_file($path))
-			throw new ScientiaFileNotFound($path + ' was not found.');
+			throw new ScientiaFileNotFound($path . ' was not found.');
 		return parse_ini_file($path);
 	}
 }
