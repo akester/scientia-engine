@@ -46,4 +46,17 @@ class ScientiaFileNotFound extends ScientiaGenericException {
 	
 	/* Take care of exception specific functions */
 }
+
+/**
+ * Thrown on general database error
+ * @author andrew
+ *
+ */
+class ScientiaDataBaseError extends ScientiaGenericException {
+	public function __construct($message, $code = 0) {
+		parent::__construct($message, $code);
+	}
+	
+	/* Take care of exception specific functions */
+}
 ?>

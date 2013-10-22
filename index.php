@@ -225,6 +225,14 @@ switch ($c) {
 		);
 		sendResponse(200, $data);
 		break;
+	case 'testDBConnect':
+		$db = new scientiaDB();
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(
