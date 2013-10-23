@@ -77,9 +77,9 @@ class scientiaModuleCommon {
 				$path = $this->modulePath . $m . '/info.ini';
 			
 			/* If the module doesn't have an information file, just skip it. */
-			if (!is_file($path))
-				continue;
-			$info = $loader->loadIni($path);
+			unset ($info);
+			if (is_file($path))
+				$info = $loader->loadIni($path);
 			if (!array_key_exists('name', $info))
 				$out[$m] = $m;
 			else
