@@ -181,7 +181,10 @@ $chars->storeChars();
  */
 $module = new scientiaModuleCommon();
 $paths = array(
-		'logic' => '/home/andrew/Projects/scientia-logic/'
+		'logic' => '/home/andrew/Projects/scienita-modules/logic',
+		'tic-tac-toe' => '/home/andrew/Projects/scientia-modules/tic-tac-toe',
+		'meta' => '/home/andrew/Projects/scientia-modules/meta',
+		'chess' => '/home/andrew/Projects/scientia-modules/chess'
 );
 $module->overrideModulePaths($paths);
 
