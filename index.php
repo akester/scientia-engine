@@ -256,6 +256,30 @@ switch ($c) {
 		);
 		sendResponse(200, $data);
 		break;
+	case 'testAuth':
+		$auth = new scientiaAuth();
+		$auth->auth();
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+		);
+		sendResponse(200, $data);
+		break;
+	case 'genPassword':
+		if (empty($_GET['password']))
+			sendResponse(400, array(
+					'statusMessage' => 'Missing Parameter',
+					'statusDescription' => 'password not found.'
+			));
+		$auth = new scientiaAuth();
+		$hash = $auth->genHash($_GET['password']);
+		$data = array(
+				'statusMessage' => 'OK',
+				'statusDescription' => 'OK',
+				'hash' => $hash
+		);
+		sendResponse(200, $data);
+		break;
 	default:
 		/* Not a valid command. */
 		sendResponse(400, array(
