@@ -25,8 +25,8 @@ require_once('auth.class.php');
 require_once('chars.class.php');
 require_once('exceptions.class.php');
 require_once('hash.class.php');
-require_once ('loader.class.php');
-require_once ('modules.class.php');
+require_once('loader.class.php');
+require_once('modules.class.php');
 require_once('mysql.class.php');
 
 ?>
