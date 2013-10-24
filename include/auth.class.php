@@ -34,7 +34,7 @@ class scientiaAuth {
 	private $db;
 	
 	/* Table Config */
-	private $authTable = 'scientia_users';
+	private $authTable = 'users';
 	
 	/**
 	 * Check to see if a user is blacklisted (status != 0)
@@ -62,7 +62,7 @@ class scientiaAuth {
 	private function getHash($username) {
 		$hash = $this->db->query("SELECT `password` FROM $this->authTable WHERE
 				`username` = '$username'");
-		if ($users->num_rows != 1)
+		if ($hash->num_rows != 1)
 			/* We didn't get a user back, or we got multiple. */
 			return false;
 		$row = $hash->fetch_assoc();
@@ -76,7 +76,7 @@ class scientiaAuth {
 	 */
 	private function validateHash($stored, $password) {
 		$h = new PasswordHash(8, FALSE);
-		return $h->CheckPassowrd($password, $stored);
+		return $h->CheckPassword($password, $stored);
 	}
 	
 	/**
